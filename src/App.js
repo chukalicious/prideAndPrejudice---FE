@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import { themeChange } from "theme-change";
 import axios from "axios";
 
+import Navbar from "./common/Navbar";
+import Home from "./pages/Home";
+import Footer from "./common/Footer";
+
 function App() {
   useEffect(() => {
     themeChange(false);
@@ -16,7 +20,13 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <Navbar />
+      <Home />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
