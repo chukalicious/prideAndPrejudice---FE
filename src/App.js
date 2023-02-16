@@ -1,10 +1,9 @@
 import "./App.css";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
-import axios from "axios";
 
 import Navbar from "./common/Navbar";
-import Home from "./pages/Home";
+import Dashboard from "./components/UserDashboardComponent/Dashboard";
 import Footer from "./common/Footer";
 
 function App() {
@@ -13,17 +12,10 @@ function App() {
     // 👆 false parameter is required for react project
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/questions`)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
     <div>
       <Navbar />
-      <Home />
+      <Dashboard />
       <Footer />
     </div>
   );
