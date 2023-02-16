@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="box-border">
       <Navbar />
       <Dashboard />
       <Footer />
