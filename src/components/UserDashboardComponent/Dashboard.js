@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import questionsReducer from "../../reducers/questionsReducer";
-import { Hearts } from "react-loader-spinner";
-
+import { HeartLoader } from "../../common/HeartLoader";
+import QuestionContainer from "../QuestionComponent";
 const Dashboard = () => {
   const [state, dispatch] = useReducer(questionsReducer, {
     loading: false,
@@ -23,13 +23,9 @@ const Dashboard = () => {
       });
   };
 
-  const handleAnswer = () => {
-    console.log("answer", state.questions[0].correct);
-  };
-
   return (
     <div className="bg-base-100 min-h-[65vh]">
-      <div className="card mx-auto py-8 w-[75%] bg-base-100 shadow-xl image-full">
+      <div className="card mx-auto my-8 w-[75%] bg-base-100 shadow-xl image-full">
         <figure>
           <img
             src="https://live.staticflickr.com/65535/52691848386_6cacd90857_o.jpg"
@@ -51,75 +47,12 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {/* queston cards will go here */}
+      {/* question cards will go here */}
       <div className="bg-base-100">
         {state.loading ? (
-          <div className="text-center mx-auto w-[75%] bg-base-100 text-primary-content">
-            <Hearts
-              height="150"
-              width="150"
-              color="#D1C1D8"
-              ariaLabel="hearts-loading"
-              wrapperStyle={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-              wrapperClass=""
-              visible={true}
-            />
-          </div>
+          <HeartLoader />
         ) : (
-          <div>
-            {state.questions.map((question) => (
-              <div
-                key={question.id}
-                className="card mx-auto pb-8 w-[75%] bg-base-100 shadow-xl image-full"
-              >
-                <div className="card-body">
-                  <h2 className="text-xl text-justify font-serif">
-                    {question.question}
-                  </h2>
-                  <div className="card-actions justify-center mt-4">
-                    <label className="label-text w-full font-sans text-neutral-content">
-                      Pray, which answer will you choose?
-                    </label>
-                    <ul className="menu menu-compact lg:menu-normal bg-base-100 w-56 p-2 rounded-box font-serif italic font-bold text-neutral-content">
-                      <li>
-                        <label className="label-text">
-                          <input
-                            type="radio"
-                            name="radio-2"
-                            className="radio radio-secondary"
-                          />{" "}
-                          {question.correct}
-                        </label>
-                      </li>
-                      <li>
-                        <label className="label-text">
-                          <input
-                            type="radio"
-                            name="radio-2"
-                            className="radio radio-secondary"
-                          />{" "}
-                          {question.correct}
-                        </label>
-                      </li>
-                      <li>
-                        <label className="label-text">
-                          <input
-                            type="radio"
-                            name="radio-2"
-                            className="radio radio-secondary"
-                          />{" "}
-                          {question.correct}
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <QuestionContainer questions={state.questions} />
         )}
       </div>
     </div>
