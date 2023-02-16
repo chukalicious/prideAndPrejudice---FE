@@ -6,13 +6,13 @@ module.exports = {
   },
   daisyui: {
     styled: true,
-    themes: ["light"],
+    themes: ["pastel"],
     base: true,
     utils: true,
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "dark",
+    darkTheme: "night",
   },
   plugins: [
     require("@tailwindcss/typography"),
