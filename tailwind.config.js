@@ -2,10 +2,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontFamily: {
-      sans: ["Chivo", "sans-serif"],
-      serif: ["Playfair Display", "serif"],
-    },
     extend: {},
   },
   daisyui: {
