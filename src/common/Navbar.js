@@ -2,7 +2,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1">
-        <button className="btn btn-ghost normal-case text-3xl font-serif font-semibold italic">
+        <button className="btn btn-ghost normal-case text-xl">
           Pride & Prejudice Trivia
         </button>
       </div>
